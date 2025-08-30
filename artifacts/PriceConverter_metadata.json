@@ -8,16 +8,16 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "funder",
-						"type": "address"
+						"internalType": "uint256",
+						"name": "ethAmount",
+						"type": "uint256"
 					}
 				],
-				"name": "addresstoAmount",
+				"name": "getConversionRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -26,25 +26,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "fund",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
+				"name": "getPrice",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"name": "funder",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -64,7 +51,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"fundme.sol": "FundMe"
+			"PriceConverter.sol": "PriceConverter"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -92,14 +79,6 @@
 			"urls": [
 				"bzz-raw://a2807d3ff1fa00478f1930221cf9d1db21707bac6a2bcec68fa025df0b4e678f",
 				"dweb:/ipfs/QmNU71sEUeqqwSVEfAosuZJNZZWY8vhq219QEbo5JwSyZh"
-			]
-		},
-		"fundme.sol": {
-			"keccak256": "0x3d076f679f9bf66826c49ea007c3f4f46b2cd07c2564ed36b4f82d2768573112",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://185a44e5f892d68353ab492d4062de5189ae4cd93d4b740eee6649cd2c307065",
-				"dweb:/ipfs/QmToMycyze1vKA86d68uqUrWMx3gCx79RPqwf4c2f3WWYJ"
 			]
 		}
 	},

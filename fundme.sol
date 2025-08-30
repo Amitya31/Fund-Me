@@ -1,21 +1,20 @@
 // SPDX-License-Identifier:MIT
 pragma solidity ^0.8.18;
 
-import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol"; //importing from npm  
-
+import {PriceConverter} from "./PriceConverter.sol";
 contract FundMe{
-    uint256 minimumUsd = 5;
+    using PriceConverter for uint256;
+    uint256 minimumUsd = 5e18;
+
+    address[] public funder;
+    mapping(address funder=>uint256 amount) public addresstoAmount;
     //Allow users to send $
     // minimum $ sent 5$
     function fund() public payable {
-        require(msg.value >= minimumUsd,"Didn,t send enough usd");
+        require(msg.value.getConversionRate() >= minimumUsd,"Didn,t send enough usd");
+        funder.push(msg.sender);
+        addresstoAmount[msg.sender] = addresstoAmount[msg.sender] + msg.value; // the amount the sender sends multiple times
     }
 
-    function getPrice() public view returns(uint256){
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
-        (,int256 answer,,,) = priceFeed.latestRoundData(); // its like destructuring in javascript
-        // returns price of Eth in terms of USd
-        return uint256(answer * 1e10); // as msg.value is of 10^18 while answer is of only 10^8 eth
-    }
-    function getConversionRate() public {}
+    
 }
