@@ -14,5 +14,5 @@ library PriceConverter {
         uint256 ethPrice = getPrice(); // current eth Price means USD
         uint256 ethAmountToUsd = (ethPrice * ethAmount) / 1e18; //current ethPrice * input eth Amount
         return ethAmountToUsd;
-    }
+    }  
 }
