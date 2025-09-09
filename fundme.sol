@@ -41,6 +41,11 @@ contract FundMe{
 
         //send
         bool sendSuccess = payable(msg.sender).send(address(this).balance);
+        require(sendSuccess,"Error in sending the transaction");
+
+        // difference in send and transfer 
+        // when send the transaction does not automatically reverts when fail,we need to customize or add the require function
+        // when transfer the transaction automatically reverts when fail 
         
 
     }
